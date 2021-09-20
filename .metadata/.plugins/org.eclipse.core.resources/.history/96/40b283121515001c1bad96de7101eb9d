@@ -1,0 +1,25 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class SampleSelenium {
+	public static void main(String[] args) throws InterruptedException
+    // to configure driver
+    {
+       //System.setProperty("webdriver.chrome.driver","C:/Users/swathie/eclipse-workspace-SeleniumProject/seleniumpractice/drivers/chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.google.com/");
+        driver.manage().window().maximize(); //method used to open URL and it will maximize
+        Thread.sleep(5000); // let the user actually see something!
+        WebElement searchBox = driver.findElement(By.name("q"));
+        searchBox.sendKeys("ChromeDriver");
+        searchBox.submit();
+        Thread.sleep(5000); // let the user actually see something!
+        driver.quit();
+    }
+
+}
